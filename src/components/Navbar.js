@@ -1,67 +1,55 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useAuth0 } from '@auth0/auth0-react';
+import { GithubContext } from '../context/context';
 
 const Navbar = () => {
-  const {
-    isLoading,
-    isAuthenticated,
-    error,
-    user,
-    loginWithRedirect,
-    logout,
-  } = useAuth0();
-  const isUser = isAuthenticated && user
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  if (error) {
-    return <div>Oops... {error.message}</div>;
-  }
+  const { requests, setSearchProfile } = React.useContext( GithubContext )
 
   return (
       <Wrapper>
-          { isUser && user.picture && <img src={user.picture} alt={user.name} /> }
-          { isUser && user.name && (
-            <h4>
-              Welcome, <strong>{ user.name.toUpperCase() }</strong>
-            </h4>
-          )}
-          { ! isUser && <button onClick={loginWithRedirect}>Log in</button> }
-          
+          <button 
+            onClick={ () => setSearchProfile( true ) }
+            onKeyPress={ () => setSearchProfile( true ) }
+          >
+            Search Profile
+          </button>
+          <span>Requests : { requests } / 60</span>
       </Wrapper>
   )
 };
 
 const Wrapper = styled.nav`
-  padding: 1.5rem;
-  margin-bottom: 4rem;
-  background: var(--clr-white);
+  margin: 2rem auto 0 auto;
   text-align: center;
-  display: grid;
-  grid-template-columns: auto auto 100px;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+
   h4 {
     margin-bottom: 0;
     font-weight: 400;
   }
+
   img {
     width: 35px !important;
     height: 35px;
     border-radius: 50%;
     object-fit: cover;
   }
+
   button {
-    background: transparent;
     border: transparent;
-    font-size: 1.2rem;
     text-transform: capitalize;
-    letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
+    color: var(--clr-omega);
     cursor: pointer;
+    background-color: var(--clr-alpha);
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+
+    &:hover {
+      background-color: var(--clr-alpha);
+    }
   }
 `;
 

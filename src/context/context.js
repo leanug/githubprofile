@@ -20,6 +20,7 @@ const GithubProvider = ({ children }) => {
     /* Request loading */
     const [ requests, setRequests ] = useState( 0 )
     const [ isLoading, setIsLoading ] = useState( false )
+    const [ searchProfile, setSearchProfile ] = useState( false )
     /* Error */
     const [ error, setError ] = useState({ show: false, msg: '' })
 
@@ -54,6 +55,7 @@ const GithubProvider = ({ children }) => {
         }
 
         setIsLoading( false )
+        setSearchProfile( false )
     }
 
     /* Check rate */
@@ -91,6 +93,8 @@ const GithubProvider = ({ children }) => {
             error,
             searchGithubUser,
             isLoading,
+            searchProfile,
+            setSearchProfile
         }}>
             { children }
         </GithubContext.Provider>

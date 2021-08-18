@@ -19,21 +19,23 @@ const Card = () => {
   return (
     <Wrapper>
       <header>
-        <img src={ avatar_url } alt={ name } />
+        <a href={ html_url }>
+          <img src={ avatar_url } alt={ name } />
+        </a>
+        
         <div>
-          <h4>{ name }</h4>
-          <p>@{ twitter_username || 'username not available' }</p>
+        <a href={ html_url }><h1>{ name }</h1></a>
+          <p className="mb-20">@{ twitter_username || 'username not available' }</p>
         </div>
-        <a href={ html_url }>follow</a>
       </header>
-      <p className="bio">{ bio }</p>
-      <div className="links">
-        <p>
+      <p className="bio mb-20">{ bio }</p>
+      <div className="links mb-10">
+        <span>
           <MdBusiness></MdBusiness> { company }
-        </p>
-        <p>
+        </span>
+        <span>
           <MdLocationOn></MdLocationOn> { location || 'earth' }
-        </p>
+        </span>
         <a href={`https://${ blog }`}>
           <MdLink></MdLink>
           { blog }
@@ -44,47 +46,31 @@ const Card = () => {
 };
 
 const Wrapper = styled.article`
-  background: var(--clr-white);
-  padding: 1.5rem 2rem;
-  border-top-right-radius: var(--radius);
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
-  position: relative;
-  &::before {
-    content: 'user';
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-100%);
-    background: var(--clr-white);
-    color: var(--clr-grey-5);
-    border-top-right-radius: var(--radius);
-    border-top-left-radius: var(--radius);
-    text-transform: capitalize;
-    padding: 0.5rem 1rem 0 1rem;
-    letter-spacing: var(--spacing);
-    font-size: 1rem;
-  }
+  margin-top: 6rem;
+  padding: 0 2rem;
+  text-align: center;
+
   header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    text-align: center;
     align-items: center;
-    column-gap: 1rem;
-    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
     img {
-      width: 75px;
-      height: 75px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
     }
-    h4 {
-      margin-bottom: 0.25rem;
-    }
+
     p {
-      margin-bottom: 0;
+      color: var(--clr-delta);
+      font-size: 2rem;
+      font-weight: bold;
     }
+
     a {
       color: var(--clr-primary-5);
-      border: 1px solid var(--clr-primary-5);
       padding: 0.25rem 0.75rem;
       border-radius: 1rem;
       text-transform: capitalize;
@@ -101,14 +87,17 @@ const Wrapper = styled.article`
     color: var(--clr-grey-3);
   }
   .links {
-    p,
+    display: flex;
+    justify-content: center;
+    span,
     a {
-      margin-bottom: 0.25rem;
+      margin: 0.5rem;
       display: flex;
       align-items: center;
       svg {
         margin-right: 0.5rem;
-        font-size: 1.3rem;
+        font-size: 2rem;
+        color: var(--clr-alpha);
       }
     }
     a {

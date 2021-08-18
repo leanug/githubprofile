@@ -17,7 +17,7 @@ const ChartComponent = ({ data }) => {
         "caption": "Stars Per Language",
         "decimals": 0,
         "showPercentValues": 0,
-        "theme": "candy",
+        "theme": "fusion",
       },
       data,
     },

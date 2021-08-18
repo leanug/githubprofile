@@ -1,28 +1,37 @@
 import React from 'react';
-import { Info, Repos, User, Search, Navbar } from '../components';
+import { Footer, Info, Repos, User, Search, Navbar, PopularRepos } from '../components';
 import loadingImage from '../images/preloader.gif';
 import { GithubContext } from '../context/context';
+import GithubCorner from 'react-github-corner';
 
 const Dashboard = () => {
-  const { isLoading } = React.useContext( GithubContext )
+  const { isLoading, searchProfile } = React.useContext( GithubContext )
 
   if ( isLoading )
     return (
-      <main>
-        <Navbar />
         <img src={loadingImage} className="loading-img" alt="loading" />
-      </main>
     )
-  
+
   return (
     <main>
-      <Navbar />
-      <Search />
-      <Info />
-      <User />
-      <Repos />
+      { searchProfile &&  <Search /> }
+      { ! searchProfile && 
+        <>
+          <Navbar />
+          <User />
+          <Info />
+          <Repos />
+          <PopularRepos />
+          <Footer />
+          <GithubCorner
+            href="https://github.com/leanug/githubprofile"
+          />
+        </>
+      }
     </main>
   );
 };
+
+
 
 export default Dashboard;

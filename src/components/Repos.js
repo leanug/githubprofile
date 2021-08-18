@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GithubContext } from '../context/context';
-import { Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts';
+import { Pie3D, Column3D, Doughnut2D } from './Charts';
 
 const Repos = () => {
   const { repos } = React.useContext( GithubContext )
@@ -9,25 +9,25 @@ const Repos = () => {
   const languages = repos.reduce(( total, item ) => {
     const { language, stargazers_count } = item
 
-    if ( ! language )
-      return total
-    
-    if ( ! total[ language ])
-      total[ language ] = { 
-        label: language, 
-        value: 1, 
-        stars: stargazers_count
-      }
-    
-    if ( total[ language ])
-    total[ language ] = {
-      ...total[ language ],
-      value: total[ language ].value + 1,
-      stars: total[ language ].stars + stargazers_count
-    }
+      if ( ! language )
+        return total
+      
+      if ( ! total[ language ])
+        total[ language ] = { 
+          label: language, 
+          value: 1, 
+          stars: stargazers_count
+        }
+      
+      if ( total[ language ])
+        total[ language ] = {
+          ...total[ language ],
+          value: total[ language ].value + 1,
+          stars: total[ language ].stars + stargazers_count
+        }
 
-    return total
-  }, {})
+      return total
+    }, {})
 
   /* Most usded languages */
   const mostUsedLang = Object.values( languages )
@@ -67,12 +67,11 @@ const Repos = () => {
       .reverse()
 
   return (
-    <section className="section">
-      <Wrapper className="section-center">
+    <section className="wrapper mt-60 mb-60">
+      <Wrapper>
         <Pie3D data={ mostUsedLang } />
-        <Column3D data={ mostStars } />
         <Doughnut2D data={ mostStarsPerLang } />
-        <Bar3D data={ mostForked } />
+        <Column3D data={ mostStars } />
       </Wrapper>
     </section>
   )
@@ -82,13 +81,7 @@ const Wrapper = styled.div`
   display: grid;
   justify-items: center;
   gap: 2rem;
-  @media (min-width: 800px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (min-width: 1200px) {
-    grid-template-columns: 2fr 3fr;
-  }
+  grid-template-columns: 1fr 1fr 1fr;
 
   div {
     width: 100% !important;

@@ -1,7 +1,9 @@
+import Footer from "./Footer";
 import Info from "./Info";
 import Repos from "./Repos";
 import User from "./User";
 import Search from "./Search";
 import Navbar from "./Navbar";
+import PopularRepos from "./PopularRepos";
 
-export { Info, Repos, User, Search, Navbar };
+export { Footer, Info, Repos, User, Search, Navbar, PopularRepos };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { MdSearch } from 'react-icons/md';
+import { FaGithub } from 'react-icons/fa'
 import { GithubContext } from '../context/context';
 
 const Search = () => {
@@ -13,9 +14,11 @@ const Search = () => {
   }
 
   return (
-    <section className="section">
-      <Wrapper className="section-center">
+    <Wrapper>
+      <div className="container">
         { error.show && <ErrorWrapper><p>{ error.msg }</p></ErrorWrapper> }
+        <FaGithub className="icon" />
+        <h2>GitHub Profile</h2>
         <form onSubmit={ handleSubmit }>
           <div className="form-control">
             <MdSearch />
@@ -29,86 +32,93 @@ const Search = () => {
           </div>
         </form>
         <h3>requests : { requests } / 60</h3>
-      </Wrapper>
-    </section>
+      </div>
+    </Wrapper>
   )
 };
 
-const Wrapper = styled.div`
-  position: relative;
-  display: grid;
-  gap: 1rem 1.75rem;
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr max-content;
-    align-items: center;
-    h3 {
-      padding: 0 0.5rem;
-    }
+const Wrapper = styled.section`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    text-align: center;
   }
+
+  .icon {
+    color: var(--clr-alpha);
+    font-size: 4rem;
+  }
+
+  form {
+    margin: 1.5rem 0;
+  }
+
   .form-control {
-    background: var(--clr-white);
+    background-color: var(--clr-omega);
     display: grid;
     align-items: center;
     grid-template-columns: auto 1fr auto;
     column-gap: 0.5rem;
     border-radius: 5px;
-    padding: 0.5rem;
+    padding: 1rem ;
+    width: 32rem;
+
     input {
       border-color: transparent;
-      outline-color: var(--clr-grey-10);
+      outline-color: var(--clr-beta);
       letter-spacing: var(--spacing);
       color: var(--clr-grey-3);
       padding: 0.25rem 0.5rem;
     }
+
     input::placeholder {
-      color: var(--clr-grey-3);
+      color: var(--clr-delta);
       text-transform: capitalize;
-      letter-spacing: var(--spacing);
     }
+
     button {
       border-radius: 5px;
       border-color: transparent;
-      padding: 0.25rem 0.5rem;
+      padding: 0.5rem 0.8rem;
       text-transform: capitalize;
       letter-spacing: var(--spacing);
-      background: var(--clr-primary-5);
-      color: var(--clr-white);
+      background: var(--clr-alpha);
+      color: var(--clr-omega);
       transition: var(--transition);
       cursor: pointer;
       &:hover {
-        background: var(--clr-primary-8);
-        color: var(--clr-primary-1);
+        background: var(--clr-psi);
       }
     }
 
     svg {
-      color: var(--clr-grey-5);
+      color: var(--clr-alpha);
     }
     input,
     button,
     svg {
-      font-size: 1.3rem;
-    }
-    @media (max-width: 800px) {
-      button,
-      input,
-      svg {
-        font-size: 0.85rem;
-      }
+      font-size: 1.6rem;
     }
   }
+
   h3 {
     margin-bottom: 0;
-    color: var(--clr-grey-5);
+    color: var(--clr-delta);
     font-weight: 400;
   }
-`;
+`
+
 const ErrorWrapper = styled.article`
- 
   text-transform: capitalize;
+
   p {
     color: red;
     letter-spacing: var(--spacing);
   }
-`;
+`
+
 export default Search;

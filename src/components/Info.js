@@ -13,30 +13,27 @@ const UserInfo = () => {
       icon: <GoRepo className="icon" />, 
       label: 'repos', 
       value: public_repos, 
-      color: 'pink' 
     },
     { 
       id: 2, 
       icon: <FiUsers className="icon" />, 
       label: 'followers', 
       value: followers, 
-      color: 'green' 
     },
     { 
       id: 3, 
       icon: <FiUserPlus className="icon" />, 
       label: 'following', 
       value: following, 
-      color: 'putple' 
     },
     { 
       id: 4, 
       icon: <GoGist className="icon" />, 
       label: 'gists', 
       value: public_gists, 
-      color: 'yellow' 
     },
   ]
+
   return (
     <section className="section">
       <Wrapper className="section-center">
@@ -49,64 +46,59 @@ const UserInfo = () => {
 };
 
 /* Item component */
-const Item = ({ icon, label, value, color }) => {
-  return <article className="item">
-    <span className={ color }>{ icon }</span>
-    <div>
-      <h3>{ value }</h3>
-      <p>{ label }</p>
-    </div>
-  </article>
+const Item = ({ icon, label, value }) => {
+  return (
+    <article className="item">
+      <span className="icon">{ icon }</span>
+      <div>
+        <h2>{ value }</h2>
+        <p>{ label }</p>
+      </div>
+    </article>
+  )
 }
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem 2rem;
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  max-width: 110rem;
+
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
+
   .item {
     border-radius: var(--radius);
-    padding: 1rem 2rem;
-    background: var(--clr-white);
+    box-shadow: var(--light-shadow);
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 3rem;
     align-items: center;
+    padding: 1.2rem 2rem;
+
     span {
-      width: 3rem;
-      height: 3rem;
+      width: 6rem;
+      height: 6rem;
       display: grid;
       place-items: center;
       border-radius: 50%;
     }
-    .icon {
-      font-size: 1.5rem;
-    }
+  
     h3 {
       margin-bottom: 0;
       letter-spacing: 0;
     }
+
     p {
       margin-bottom: 0;
       text-transform: capitalize;
     }
-    .pink {
-      background: #ffe0f0;
-      color: #da4a91;
-    }
-    .green {
-      background: var(--clr-primary-10);
-      color: var(--clr-primary-5);
-    }
-    .purple {
-      background: #e6e6ff;
-      color: #5d55fa;
-    }
-    .yellow {
-      background: #fffbea;
-      color: #f0b429;
+
+    .icon {
+      background: var(--clr-gamma);
+      color: var(--clr-alpha);
+      font-size: 2.5rem;
     }
   }
 `;

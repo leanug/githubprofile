@@ -4,6 +4,7 @@ Fonts
 ===============
 */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 /*
 =============== 
@@ -12,45 +13,20 @@ Variables
 */
 
 :root {
-  /* dark shades of primary color*/
-  --clr-primary-1: hsl(185, 91%, 17%);
-  --clr-primary-2: hsl(185, 84%, 25%);
-  --clr-primary-3: hsl(185, 81%, 29%);
-  --clr-primary-4: hsl(185, 77%, 34%);
-  /* primary/main color */
-  --clr-primary-5: hsl(185, 62%, 45%);
-  /* lighter shades of primary color */
-  --clr-primary-6: hsl(185, 57%, 50%);
-  --clr-primary-7: hsl(184, 65%, 59%);
-  --clr-primary-8: hsl(184, 80%, 74%);
-  --clr-primary-9: hsl(185, 94%, 87%);
-  --clr-primary-10: hsl(186, 100%, 94%);
-  /* darkest grey - used for headings */
-  --clr-grey-1: hsl(209, 61%, 16%);
-  --clr-grey-2: hsl(211, 39%, 23%);
-  --clr-grey-3: hsl(209, 34%, 30%);
-  --clr-grey-4: hsl(209, 28%, 39%);
-  /* grey used for paragraphs */
-  --clr-grey-5: hsl(210, 22%, 49%);
-  --clr-grey-6: hsl(209, 23%, 60%);
-  --clr-grey-7: hsl(211, 27%, 70%);
-  --clr-grey-8: hsl(210, 31%, 80%);
-  --clr-grey-9: hsl(212, 33%, 89%);
-  --clr-grey-10: #f1f5f8;
-  --clr-white: #fff;
-  --clr-red-dark: hsl(360, 67%, 44%);
-  --clr-red-light: hsl(360, 71%, 66%);
-  --clr-green-dark: hsl(125, 67%, 44%);
-  --clr-green-light: hsl(125, 71%, 66%);
-  --clr-black: #222;
+  --clr-alpha: #5D62B5;
+  --clr-beta: #F6F6F7;
+  --clr-gamma: #F1F1FA;
+  --clr-delta: #A1A1A1;
+  --clr-psi: #000000;
+  --clr-omega: #FFFFFF;
   --ff-primary: 'Roboto', sans-serif;
-  --ff-secondary: 'Open Sans', sans-serif;
-  --transition: all 0.3s linear;
+  --ff-secondary: 'Lato', sans-serif;
+  --transition: all 0.25s linear;
   --spacing: 0.1rem;
-  --radius: 0.25rem;
+  --radius: 1.5rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  --max-width: 1170px;
+  --max-width: 1400px;
   --fixed-width: 620px;
 }
 /*
@@ -62,82 +38,135 @@ Global Styles
 *,
 ::after,
 ::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5% !important;
+}
+
 body {
   font-family: var(--ff-secondary);
-  background: var(--clr-grey-10);
-  color: var(--clr-grey-1);
-  line-height: 1.5;
-  font-size: 0.875rem;
+  background: var(--clr-beta);
+  color: var(--clr-psi);
+  font-size: 1.6rem;
 }
+
+.wrapper {
+  max-width: var(--max-width);
+  margin: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+}
+
 ul {
   list-style-type: none;
 }
+
 a {
+  color: var(--clr-alpha);
   text-decoration: none;
 }
+
 img {
   width: 100%;
   display: block;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  letter-spacing: var(--spacing);
-  text-transform: capitalize;
-  line-height: 1.25;
-  margin-bottom: 0.75rem;
-  font-family: var(--ff-primary);
-}
-h1 {
-  font-size: 3rem;
-}
-h2 {
-  font-size: 2rem;
-}
-h3 {
-  font-size: 1.25rem;
-}
-h4 {
-  font-size: 0.875rem;
-}
-p {
-  margin-bottom: 1.25rem;
-  color: var(--clr-grey-5);
-}
-@media screen and (min-width: 800px) {
-  h1 {
-    font-size: 4rem;
-  }
-  h2 {
-    font-size: 2.5rem;
-  }
-  h3 {
-    font-size: 1.75rem;
-  }
-  h4 {
-    font-size: 1rem;
-  }
-  body {
-    font-size: 1rem;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
+.header-1, h1,
+.header-2, h2,
+.header-3, h3,
+.header-4, h4,
+.header-5, h5,
+.header-6, h6,
+.display-one,
+.display-two,
+.display-three,
+.display-four  {
     line-height: 1;
+    margin: 0;
+    font-weight: 700;
+    font-family: var(--ff-primary);
+}
+
+h1, .header-1 {
+    font-size: 4rem;
+}
+
+h2, .header-2 {
+    font-size: 3.2rem;
+}
+
+h3, .header-3 {
+    font-size: 2.5rem;
+}
+
+h4, .header-4 {
+    font-size: 1.75rem;
+}
+
+h5, .header-5 {
+    font-size: 1.55rem;
+}
+
+h6, .header-6 {
+    font-size: 1rem;
+}
+
+@media screen and ( min-width: 768px ) {
+  h1, .header-1 {
+      font-size: 4.5rem;
   }
+
+  h2, .header-2 {
+      font-size: 3.8rem;
+  }
+
+  h3, .header-3 {
+      font-size: 3rem;
+  }
+
+  h4, .header-4 {
+      font-size: 2.25rem;
+  }
+
+  h5, .header-5 {
+      font-size: 1.75rem;
+  }
+
+  h6, .header-6 {
+      font-size: 1.25rem;
+  }
+}
+
+.display-one {
+    font-size: calc( 2.5rem + 5vw );
+}
+
+.display-two {
+    font-size: calc( 2.5rem + 3.5vw );
+}
+
+.display-three {
+    font-size: calc( 2.5rem + 2.8vw );
+}
+
+.display-four {
+    font-size: calc( 2.5rem + 2.2vw );
+}
+
+.display-flex {
+    display: flex;
 }
 /*  global classes */
 
 .btn {
   text-transform: uppercase;
-  background: var(--clr-primary-5);
+  background: var(--clr-alpha);
   color: var(--clr-primary-10);
   padding: 0.375rem 0.75rem;
   letter-spacing: var(--spacing);
@@ -150,6 +179,7 @@ p {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
 }
+
 .btn:hover {
   background: var(--clr-primary-8);
   color: var(--clr-primary-1);
@@ -166,11 +196,13 @@ p {
   margin: 0 auto;
   max-width: 1170px;
 }
+
 @media screen and (min-width: 992px) {
   .section-center {
     width: 95vw;
   }
 }
+
 .loading-img {
   width: 20rem;
   height: 20rem;
@@ -178,6 +210,122 @@ p {
   margin: 0 auto;
   margin-top: 10rem;
 }
+
 main {
   padding-bottom: 2rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.section-my {
+  margin-bottom: calc( 6rem + 10vw );
+  margin-top: calc( 6rem + 10vw );
+
+  @media screen and ( min-width: 1200px ) {
+      margin-bottom: 10rem;
+      margin-top: 10rem;
+  }
+}
+
+.section-mb {
+  margin-bottom: calc( 6rem + 5vw );
+}
+
+.section-mt {
+  margin-top: calc( 6rem + 5vw );
+}
+
+@media screen and ( min-width: 1200px ) {
+  .section-mb {
+      margin-bottom: 10rem;
+  }
+
+  .section-mt {
+      margin-top: 10rem;
+  }
+}
+
+.mt-10 {
+  margin-top: 1rem;
+}
+
+.mt-20 {
+  margin-top: 2rem;
+}
+
+.mt-30 {
+  margin-top: 3rem;
+}
+
+.mt-60 {
+  margin-top: 6rem;
+}
+
+.mt-100 {
+  margin-top: 10rem;
+}
+
+.mt-160 {
+  margin-top: 16rem;
+}
+
+.mb-10 {
+  margin-bottom: 1rem;
+}
+
+.mb-20 {
+  margin-bottom: 2rem;
+}
+
+.mb-30 {
+  margin-bottom: 3rem;
+}
+
+.mb-60 {
+  margin-bottom: 6rem;
+}
+
+.mb-100 {
+  margin-bottom: 10rem;
+}
+
+.mb-160 {
+  margin-bottom: 16rem;
+}
+
+.ml-10 {
+  margin-left: 1rem;
+}
+
+.mr-10 {
+  margin-right: 1rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pt-60 {
+  padding-top: 6rem;
+}
+
+.pt-100 {
+  padding-top: 10rem;
+}
+
+.pb-60 {
+  padding-bottom: 6rem;
+}
+
+.pb-100 {
+  padding-bottom: 10rem;
 }

@@ -1,10 +1,10 @@
 # GitHup Profile
 
-Data visualization of github users - [GitHubProfile](https://www.leandroubilla.com) built with [React](https://www.reactjs.org/) and hosted on [Netlify](https://www.netlify.com/)
+Data visualization of github users - [GitHubSter](https://githubster.netlify.app/) built with [React](https://www.reactjs.org/) and hosted on [Netlify](https://www.netlify.com/)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/99c7fe08-b0e8-4131-a57f-158d2fac2fc3/deploy-status)](https://app.netlify.com/sites/elegant-dijkstra-d259df/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5a15e057-7501-4948-acd9-8e681aca02cb/deploy-status)](https://app.netlify.com/sites/githubster/deploys)
 
-![Home Image](https://github.com/leanug/v1/blob/main/src/static/screenshot.jpg)
+![Home Image](https://github.com/leanug/githubprofile/blob/main/src/images/screenshot.jpg)
 
 ## Install:
 

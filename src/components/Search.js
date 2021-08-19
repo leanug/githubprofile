@@ -18,7 +18,7 @@ const Search = () => {
       <div className="container">
         { error.show && <ErrorWrapper><p>{ error.msg }</p></ErrorWrapper> }
         <FaGithub className="icon" />
-        <h2 className="mt-10">GitHub Profile</h2>
+        <h2 className="mt-10">GitHubSter</h2>
         <form onSubmit={ handleSubmit }>
           <div className="form-control">
             <MdSearch />

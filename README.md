@@ -10,12 +10,6 @@ Data visualization of github users - [GitHubSter](https://githubster.netlify.app
 
 	npm install
 
-### Warnings and create-react-app
-
-package.json
-
-    "build": "CI= react-scripts build",
-
 ## Run
 
 	npm start
@@ -23,3 +17,9 @@ package.json
 ## Build
 
 	npm run build
+
+### Warnings and create-react-app
+
+package.json
+
+    "build": "CI= react-scripts build",

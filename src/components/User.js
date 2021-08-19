@@ -29,22 +29,26 @@ const User = () => {
       </header>
       <p className="bio mb-20">{ bio }</p>
       <div className="links mb-10">
-        <div>
-          <span>
-            <MdBusiness></MdBusiness> { company }
-          </span>
-        </div>
+        { company && 
+          <div>
+            <span>
+              <MdBusiness></MdBusiness> { company }
+            </span>
+          </div>
+        }
         <div>
           <span>
             <MdLocationOn></MdLocationOn> { location || 'earth' }
           </span>
         </div>
-        <div>
-          <a href={`https://${ blog }`}>
-            <MdLink></MdLink>
-            { blog }
-          </a>
-        </div>
+        { blog && 
+          <div>
+            <a href={`https://${ blog }`}>
+              <MdLink></MdLink>
+              { blog }
+            </a>
+          </div>
+        }
       </div>
     </Wrapper>
   )

@@ -1,4 +1,4 @@
-# GitHup Profile
+# GitHubSter
 
 Data visualization of github users - [GitHubSter](https://githubster.netlify.app/) built with [React](https://www.reactjs.org/) and hosted on [Netlify](https://www.netlify.com/)
 

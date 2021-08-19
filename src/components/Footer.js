@@ -17,13 +17,19 @@ const Footer = () => {
 const Wrapper = styled.footer`
     max-width: var(--max-width);
     margin: auto;
-    padding: 1rem;
+    padding: 0 2rem;
     text-align: center;
     margin-top: 6rem;
+    margin-bottom: 2rem;
 
     a {
         font-weight: 700;
         margin: 0 1rem;
+
+        @media (max-width: 768px) {
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
     }
 `
 

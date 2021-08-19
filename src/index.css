@@ -17,7 +17,8 @@ Variables
   --clr-beta: #F6F6F7;
   --clr-gamma: #F1F1FA;
   --clr-delta: #A1A1A1;
-  --clr-psi: #000000;
+  --clr-epsilon: #E5E5E5;
+  --clr-psi: #5B5A7C;
   --clr-omega: #FFFFFF;
   --ff-primary: 'Roboto', sans-serif;
   --ff-secondary: 'Lato', sans-serif;
@@ -68,8 +69,12 @@ ul {
 }
 
 a {
-  color: var(--clr-alpha);
+  color: var(--clr-psi);
   text-decoration: none;
+}
+
+p {
+  line-height: 1.8;
 }
 
 img {
@@ -167,22 +172,12 @@ h6, .header-6 {
 .btn {
   text-transform: uppercase;
   background: var(--clr-alpha);
-  color: var(--clr-primary-10);
-  padding: 0.375rem 0.75rem;
-  letter-spacing: var(--spacing);
+  color: var(--clr-omega);
+  padding: 1.2rem 2rem;
   display: inline-block;
-  font-weight: 400;
   transition: var(--transition);
-  font-size: 0.875rem;
-  border: 2px solid transparent;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
-}
-
-.btn:hover {
-  background: var(--clr-primary-8);
-  color: var(--clr-primary-1);
 }
 
 /* section */
@@ -209,10 +204,6 @@ h6, .header-6 {
   display: block;
   margin: 0 auto;
   margin-top: 10rem;
-}
-
-main {
-  padding-bottom: 2rem;
 }
 
 .mx-auto {

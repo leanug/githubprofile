@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import mockUser from './mockData.js/mockUser';
-import mockRepos from './mockData.js/mockRepos';
-import mockFollowers from './mockData.js/mockFollowers';
 import axios from 'axios';
 
 const rootUrl = 'https://api.github.com';
@@ -14,13 +11,13 @@ const GithubContext = React.createContext()
  * @param { node } children The whole application
  */
 const GithubProvider = ({ children }) => {
-    const [ githubUser, setGithubUser ] = useState( mockUser )
-    const [ repos, setRepos ] = useState( mockRepos )
-    const [ followers, setFollowers ] = useState( mockFollowers )
+    const [ githubUser, setGithubUser ] = useState({})
+    const [ repos, setRepos ] = useState({})
+    const [ followers, setFollowers ] = useState({})
     /* Request loading */
     const [ requests, setRequests ] = useState( 0 )
     const [ isLoading, setIsLoading ] = useState( false )
-    const [ searchProfile, setSearchProfile ] = useState( false )
+    const [ searchProfile, setSearchProfile ] = useState( true )
     /* Error */
     const [ error, setError ] = useState({ show: false, msg: '' })
 
@@ -49,30 +46,14 @@ const GithubProvider = ({ children }) => {
 
                 repos.status === status && setRepos( repos.value.data )
                 followers.status === status && setFollowers( followers.value.data )
+                
+                setSearchProfile( false )
             }).catch( err => console.log( err ))
         } catch ( err ) {
             toggleError( true, 'there is no user with that username' );
         }
 
         setIsLoading( false )
-        setSearchProfile( false )
-    }
-
-    /* Check rate */
-    const checkRequest = () => {
-        axios
-            .get( `${rootUrl}/rate_limit` )
-            .then( response => {
-                let { data: {rate: { remaining }} } = response
-                setRequests( remaining )
-                /* Throw error */
-                if ( remaining === 0 )
-                    toggleError( true, 'Sorry, you have exeeded your hourly rate limit!')
-            })
-            .catch( error => {
-                /* Handle error */
-                console.log('0 requests');
-            })
     }
 
     /* Error msg */
@@ -81,6 +62,23 @@ const GithubProvider = ({ children }) => {
     }
 
     useEffect(()=> {
+        /* Check rate */
+        const checkRequest = () => {
+            axios
+                .get( `${rootUrl}/rate_limit` )
+                .then( response => {
+                    let { data: {rate: { remaining }} } = response
+                    setRequests( remaining )
+                    /* Throw error */
+                    if ( remaining === 0 )
+                        toggleError( true, 'Sorry, you have exeeded your hourly rate limit!')
+                })
+                .catch( error => {
+                    /* Handle error */
+                    console.log('0 requests');
+                })
+        }
+
         checkRequest()
     }, [])
 

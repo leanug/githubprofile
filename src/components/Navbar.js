@@ -10,6 +10,7 @@ const Navbar = () => {
           <button 
             onClick={ () => setSearchProfile( true ) }
             onKeyPress={ () => setSearchProfile( true ) }
+            aria-label="Open the search for a GitHub profile sidebar"
           >
             Search Profile
           </button>
@@ -24,7 +25,6 @@ const Wrapper = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
 
   h4 {
     margin-bottom: 0;
@@ -46,6 +46,7 @@ const Wrapper = styled.nav`
     background-color: var(--clr-alpha);
     padding: 1rem 2rem;
     border-radius: var(--radius);
+    margin-right: 2rem;
 
     &:hover {
       background-color: var(--clr-alpha);

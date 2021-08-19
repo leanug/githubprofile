@@ -42,7 +42,7 @@ const Repos = () => {
       return { ...item, value: item.stars }
     })
 
-    const { stars, forks } = repos.reduce(( acc, item ) => {
+    const { stars } = repos.reduce(( acc, item ) => {
       const { forks, stargazers_count, name } = item
       
       acc.stars[ stargazers_count ] = {
@@ -62,10 +62,6 @@ const Repos = () => {
       .slice(-5)
       .reverse()
 
-    const mostForked = Object.values( forks )
-      .slice(-5)
-      .reverse()
-
   return (
     <section className="wrapper mt-60 mb-60">
       <Wrapper>
@@ -81,7 +77,7 @@ const Wrapper = styled.div`
   display: grid;
   justify-items: center;
   gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat( auto-fit, minmax( 28rem, 1fr) );
 
   div {
     width: 100% !important;
@@ -93,6 +89,6 @@ const Wrapper = styled.div`
     width: 100% !important;
     border-radius: var(--radius) !important;
   }
-`;
+`
 
 export default Repos;

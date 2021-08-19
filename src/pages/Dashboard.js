@@ -1,6 +1,14 @@
 import React from 'react';
-import { Footer, Info, Repos, User, Search, Navbar, PopularRepos } from '../components';
-import loadingImage from '../images/preloader.gif';
+import { 
+  Footer, 
+  Info, 
+  Repos, 
+  User, 
+  Search, 
+  Navbar, 
+  PopularRepos, 
+  Loading 
+} from '../components';
 import { GithubContext } from '../context/context';
 import GithubCorner from 'react-github-corner';
 
@@ -9,7 +17,7 @@ const Dashboard = () => {
 
   if ( isLoading )
     return (
-        <img src={loadingImage} className="loading-img" alt="loading" />
+        <Loading />
     )
 
   return (

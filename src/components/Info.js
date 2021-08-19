@@ -2,7 +2,7 @@ import React from 'react';
 import { GithubContext } from '../context/context';
 import styled from 'styled-components';
 import { GoRepo, GoGist } from 'react-icons/go';
-import { FiUsers, FiUserPlus, FiAlertCircle } from 'react-icons/fi';
+import { FiUsers, FiUserPlus } from 'react-icons/fi';
 
 const UserInfo = () => {
   const { githubUser } = React.useContext( GithubContext )
@@ -35,7 +35,7 @@ const UserInfo = () => {
   ]
 
   return (
-    <section className="section">
+    <section className="section mt-20">
       <Wrapper className="section-center">
         { items.map( item => {
           return <Item key={ item.id} {...item} />
@@ -76,6 +76,7 @@ const Wrapper = styled.div`
     column-gap: 3rem;
     align-items: center;
     padding: 1.2rem 2rem;
+    background-color: var(--clr-omega);
 
     span {
       width: 6rem;

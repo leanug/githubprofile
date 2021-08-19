@@ -18,7 +18,7 @@ const Search = () => {
       <div className="container">
         { error.show && <ErrorWrapper><p>{ error.msg }</p></ErrorWrapper> }
         <FaGithub className="icon" />
-        <h2>GitHub Profile</h2>
+        <h2 className="mt-10">GitHub Profile</h2>
         <form onSubmit={ handleSubmit }>
           <div className="form-control">
             <MdSearch />
@@ -31,7 +31,7 @@ const Search = () => {
             { requests > 0 && <button type="submit">search</button> }
           </div>
         </form>
-        <h3>requests : { requests } / 60</h3>
+        <span>Requests : { requests } / 60</span>
       </div>
     </Wrapper>
   )
@@ -73,6 +73,10 @@ const Wrapper = styled.section`
       letter-spacing: var(--spacing);
       color: var(--clr-grey-3);
       padding: 0.25rem 0.5rem;
+
+      &:focus{
+        outline: none;
+      }
     }
 
     input::placeholder {
@@ -83,7 +87,7 @@ const Wrapper = styled.section`
     button {
       border-radius: 5px;
       border-color: transparent;
-      padding: 0.5rem 0.8rem;
+      padding: 0.6rem 0.9rem;
       text-transform: capitalize;
       letter-spacing: var(--spacing);
       background: var(--clr-alpha);
@@ -114,6 +118,7 @@ const Wrapper = styled.section`
 
 const ErrorWrapper = styled.article`
   text-transform: capitalize;
+  margin-bottom: 2rem;
 
   p {
     color: red;

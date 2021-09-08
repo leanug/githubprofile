@@ -50,8 +50,9 @@ const PopularRepos = () => {
             </Header>
             <Wrapper>
                 { topRepos.map(( item, index ) => {
+                    console.log(item);
                     return (
-                        <a href={ item.git_url } key={ index }>
+                        <a href={ item.html_url } key={ index }>
                             <header>
                                 <h5>{ item.name }</h5>
                                 <p className="mt-20 mb-30">{ item.description }</p>

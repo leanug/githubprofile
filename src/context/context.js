@@ -80,7 +80,7 @@ const GithubProvider = ({ children }) => {
         }
 
         checkRequest()
-    }, [])
+    }, [ githubUser ])
 
     return (
         <GithubContext.Provider value={{ 
